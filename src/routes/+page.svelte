@@ -31,7 +31,7 @@
 			<p class="muted">Software engineer, backend and infrastructure.</p>
 			<nav class="muted">
 				<a id="email" href="mailto:erengkorkmaz@gmail.com">erengkorkmaz@gmail.com</a>
-				<a href="https://github.com/">GitHub</a>
+				<a href="https://github.com/isErenG">GitHub</a>
 				<a href="https://www.linkedin.com/in/erengk/">LinkedIn</a>
 			</nav>
 		</div>
