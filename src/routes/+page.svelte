@@ -7,12 +7,6 @@
 		{ name: 'agent-evals', note: 'Regression tests for LLM agents', href: 'https://github.com/' },
 		{ name: 'vectordb-bench', note: 'Latency benchmarks across vector stores', href: 'https://github.com/' }
 	];
-	const work = [
-		{ name: 'WellPrepped Education', role: 'Lead Software Developer', note: 'Nov 2025 – present · Remote', desc: 'Architected the core backend API in Python/FastAPI with Kafka for event-driven services, serving 400+ concurrent users. Built the full DevOps lifecycle on GCP: blue-green CI/CD with zero-downtime releases, isolated dev/staging in private VPC subnets, centralized Cloud Logging dashboards.' },
-		{ name: 'Karel de Grote-Hogeschool', role: 'Machine Learning Intern', note: 'Mar 2026 – present · Antwerp', desc: 'Ported legacy MATLAB research scripts to Python (scikit-learn, PyTorch) with Claude Code sub-agents and manual review for numerical parity. Parallelized training with Ray on a 14-GPU / 984-CPU HPC cluster, cutting runs from days to hours.' },
-		{ name: '.hub', role: 'System Administrator', note: 'Nov 2025 – present · Antwerp', desc: 'Designed and built the network for a coworking and gaming space: router, switches, VLAN isolation, DHCP, diskless SENET boot for 10+ gaming PCs, server build, 20+ terminated Cat 6/6a runs.' },
-		{ name: 'Marketized', role: 'Software Developer', note: 'Jul – Oct 2024 · Remote', desc: 'Built data aggregation pipelines in Go and PostgreSQL over external APIs (CoinGecko, BuiltWith, Apify, OpenAI, ScrapeOps). GitHub Actions CI/CD across two environments. Two-way Coda ⇄ Notion sync in JavaScript.' }
-	];
 </script>
 
 <svelte:head>
@@ -22,7 +16,7 @@
 
 <main>
 	<nav class="top muted">
-		{#each ['About','Work','Projects','Education','Blog','Contact'] as t}<a href="#{t.toLowerCase()}">{t}</a>{/each}
+		{#each ['About','Projects','Education','Blog','Contact'] as t}<a href="#{t.toLowerCase()}">{t}</a>{/each}
 	</nav>
 	<header id="contact">
 		<img class="portrait" src="/portrait.jpg" alt="" width="96" height="128" />
@@ -51,19 +45,6 @@
 			architecture and scalability for the use case from the start. I do my best work in
 			collaborative, cross-cultural teams; they push me to grow technically and personally.
 		</p>
-	</section>
-
-	<section id="work">
-		<h2>Work</h2>
-		<ul>
-			{#each work as w}
-				<li>
-					<div><span>{w.name}</span><span class="muted">{w.note}</span></div>
-					<div class="muted">{w.role}</div>
-					<p class="desc muted">{w.desc}</p>
-				</li>
-			{/each}
-		</ul>
 	</section>
 
 	<section id="projects">
@@ -137,7 +118,6 @@
 	section + section { border-top: 1px solid var(--line); padding-top: 3rem; }
 	ul { list-style: none; margin: 0; padding: 0; }
 	li { padding: 0.5rem 0; }
-	.desc { margin-top: 0.5rem; }
 	li div { display: flex; justify-content: space-between; gap: 1rem; }
 	li div .muted { text-align: right; white-space: nowrap; }
 	a {
