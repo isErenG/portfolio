@@ -1,3 +1,11 @@
 import adapter from '@sveltejs/adapter-cloudflare';
 
-export default { kit: { adapter: adapter(), inlineStyleThreshold: 16384 } };
+export default {
+	kit: {
+		adapter: adapter(),
+		inlineStyleThreshold: 16384,
+		paths: {
+			relative: false
+		}
+	}
+};

@@ -2,6 +2,7 @@
 	import globe from '$lib/globe.js?raw';
 	import clock from '$lib/clock.js?raw';
 	import contact from '$lib/contact.js?raw';
+	import posthog from 'posthog-js';
 	const cities = [['Antwerp','Europe/Brussels'],['Istanbul','Europe/Istanbul'],['New York City','America/New_York']];
 	const projects = [
 		{ name: 'agent-evals', note: 'Regression tests for LLM agents', href: 'https://github.com/' },
@@ -24,9 +25,9 @@
 			<h1>Eren Korkmaz</h1>
 			<p class="muted">Software engineer, backend and infrastructure.</p>
 			<nav class="muted">
-				<a id="email" href="mailto:erengkorkmaz@gmail.com">erengkorkmaz@gmail.com</a>
-				<a href="https://github.com/isErenG">GitHub</a>
-				<a href="https://www.linkedin.com/in/erengk/">LinkedIn</a>
+				<a id="email" href="mailto:erengkorkmaz@gmail.com" onclick={() => posthog.capture('contact_email_clicked')}>erengkorkmaz@gmail.com</a>
+				<a href="https://github.com/isErenG" onclick={() => posthog.capture('professional_profile_opened', { profile_provider: 'github' })}>GitHub</a>
+				<a href="https://www.linkedin.com/in/erengk/" onclick={() => posthog.capture('professional_profile_opened', { profile_provider: 'linkedin' })}>LinkedIn</a>
 			</nav>
 		</div>
 	</header>
@@ -51,7 +52,7 @@
 		<h2>Projects</h2>
 		<ul>
 			{#each projects as p}
-				<li><div><a href={p.href}>{p.name}</a><span class="muted">{p.note}</span></div></li>
+				<li><div><a href={p.href} onclick={() => posthog.capture('project_repository_opened', { project_name: p.name })}>{p.name}</a><span class="muted">{p.note}</span></div></li>
 			{/each}
 		</ul>
 	</section>
