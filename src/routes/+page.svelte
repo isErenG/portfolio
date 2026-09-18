@@ -3,7 +3,8 @@
 	import clock from '$lib/clock.js?raw';
 	import contact from '$lib/contact.js?raw';
 	import posthog from 'posthog-js';
-	const cities = [['Antwerp','Europe/Brussels'],['Istanbul','Europe/Istanbul'],['New York City','America/New_York']];
+	let { data } = $props();
+	const { here, cities } = data;
 	const projects = [
 		{ name: 'agent-evals', note: 'Regression tests for LLM agents', href: 'https://github.com/' },
 		{ name: 'vectordb-bench', note: 'Latency benchmarks across vector stores', href: 'https://github.com/' }
@@ -25,6 +26,7 @@
 			<h1>Eren Korkmaz</h1>
 			<p class="muted">AI engineer. Backend, infrastructure and AI systems.</p>
 			<nav class="muted">
+				<a href="https://cal.com/ereng" onclick={() => posthog.capture('book_call_clicked')}>Book a call</a>
 				<a id="email" href="mailto:erengkorkmaz@gmail.com" onclick={() => posthog.capture('contact_email_clicked')}>erengkorkmaz@gmail.com</a>
 				<a href="https://github.com/isErenG" onclick={() => posthog.capture('professional_profile_opened', { profile_provider: 'github' })}>GitHub</a>
 				<a href="https://www.linkedin.com/in/erengk/" onclick={() => posthog.capture('professional_profile_opened', { profile_provider: 'linkedin' })}>LinkedIn</a>
@@ -74,7 +76,9 @@
 	</section>
 
 	<footer class="muted">
-		{#each cities as [name, tz], i}{i ? ' · ' : ''}<span class="city" data-tz={tz}>{name}</span>{/each}
+		<p class="now">Currently in {here}</p>
+		<pre class="map" aria-hidden="true">{@html data.map.join('\n').replaceAll('●', '<b>●</b>')}</pre>
+		<p>{#each cities as [name, tz], i}{i ? ' · ' : ''}<span class="city" class:here={name === here} data-tz={tz}>{name}</span>{/each}</p>
 	</footer>
 </main>
 
@@ -134,13 +138,26 @@
 	}
 	a:hover { text-decoration-color: var(--fg); }
 	.muted { color: var(--muted); }
-	footer { font-size: 13px; }
+	footer { font-size: 13px; text-align: center; border-top: 1px solid var(--line); padding-top: 3rem; }
 	.city { position: relative; cursor: default; }
 	.city::after { content: attr(data-time); position: absolute; left: 0; top: -1.4em; color: var(--fg); opacity: 0; transition: opacity 150ms ease-out; pointer-events: none; }
 	.city:hover::after { opacity: 1; }
+	.here { color: var(--accent); }
+	.now { margin: 0 0 1rem; }
+	.map { width: fit-content; margin: 0 auto 1.5rem; font: min(11px, calc((100vw - 2.5rem) / 72 / .6))/1.1 ui-monospace, SFMono-Regular, Menlo, monospace; }
+	.map :global(b) { color: var(--accent); font-weight: inherit; }
+	@media (prefers-reduced-motion: no-preference) {
+		.map :global(b) { display: inline-block; animation: pulse 2.4s ease-in-out infinite; }
+	}
+	@keyframes pulse { 50% { opacity: .6; transform: scale(.85); text-shadow: 0 0 6px var(--accent); } }
 	@media (max-width: 480px) {
-		header { flex-direction: column; gap: 1.25rem; }
-		header nav { flex-direction: column; gap: 0.25rem; }
+		/* photo left, name + tagline centred beside it, links full width below */
+		header { display: grid; grid-template-columns: 96px 1fr; grid-template-rows: 64px 64px auto; gap: 0 1.25rem; }
+		header > div { display: contents; }
+		.portrait { grid-row: 1 / 3; }
+		h1 { grid-column: 2; align-self: end; }
+		header p { grid-column: 2; align-self: start; }
+		header nav { grid-column: 1 / -1; flex-direction: column; gap: 0.25rem; margin-top: 1.25rem; }
 		.top { flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
 		li div { flex-direction: column; gap: 0; }
 		li div .muted { text-align: left; white-space: normal; }
