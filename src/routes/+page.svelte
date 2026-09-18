@@ -134,9 +134,9 @@
 	.city::after { content: attr(data-time); position: absolute; left: 0; top: -1.4em; color: var(--fg); opacity: 0; transition: opacity 150ms ease-out; pointer-events: none; }
 	.city:hover::after { opacity: 1; }
 	@media (max-width: 480px) {
-		header { flex-direction: column; gap: 1rem; }
+		header { flex-direction: column; gap: 1.25rem; }
 		header nav { flex-direction: column; gap: 0.25rem; }
-		.top { flex-wrap: wrap; gap: 0.5rem 1rem; justify-content: flex-start; margin-bottom: 2.5rem; }
+		.top { flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
 		li div { flex-direction: column; gap: 0; }
 		li div .muted { text-align: left; white-space: normal; }
 	}
