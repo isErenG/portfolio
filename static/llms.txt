@@ -1,0 +1,31 @@
+# Eren Korkmaz
+
+> AI engineer and independent consultant: backend, infrastructure, AI pipelines and platforms. Go, Python, Rust.
+
+I help teams turn complicated problems into clean, working software: scalable backend services, the infrastructure and DevOps lifecycle around them, and AI systems from data pipelines and LLM applications to serving them in production. I work independently, as a consultant or contractor.
+
+I build with the future in mind, choosing architecture and scalability for the use case from the start, and do my best work in collaborative, cross-cultural teams.
+
+## Focus
+
+- Backend services
+- Infrastructure and DevOps
+- AI and data pipelines
+- LLM applications and agents
+- Model serving and platform
+- Evals and reliability
+
+## Contact
+
+- [Email](mailto:erengkorkmaz@gmail.com)
+- [GitHub](https://github.com/isErenG)
+- [LinkedIn](https://www.linkedin.com/in/erengk/)
+
+## Projects
+
+- agent-evals: Regression tests for LLM agents
+- vectordb-bench: Latency benchmarks across vector stores
+
+## Education
+
+- Karel de Grote-Hogeschool: BASc Computer Science, cum laude

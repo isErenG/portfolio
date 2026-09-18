@@ -12,7 +12,7 @@
 
 <svelte:head>
 	<title>Eren Korkmaz — software engineer</title>
-	<meta name="description" content="Backend and infrastructure engineer. Go, Python, Java." />
+	<meta name="description" content="AI engineer and independent consultant: backend, infrastructure, AI pipelines and platforms. Go, Python, Rust." />
 </svelte:head>
 
 <main>
@@ -23,7 +23,7 @@
 		<img class="portrait" src="/portrait.jpg" alt="" width="96" height="128" />
 		<div>
 			<h1>Eren Korkmaz</h1>
-			<p class="muted">Software engineer, backend and infrastructure.</p>
+			<p class="muted">AI engineer. Backend, infrastructure and AI systems.</p>
 			<nav class="muted">
 				<a id="email" href="mailto:erengkorkmaz@gmail.com" onclick={() => posthog.capture('contact_email_clicked')}>erengkorkmaz@gmail.com</a>
 				<a href="https://github.com/isErenG" onclick={() => posthog.capture('professional_profile_opened', { profile_provider: 'github' })}>GitHub</a>
@@ -34,16 +34,20 @@
 
 	<section>
 		<p>
-			I help people turn complicated problems into clean, working software: scalable backend
-			services, complex domains, and the DevOps lifecycle around them.
+			I help teams turn complicated problems into clean, working software: scalable backend
+			services, the infrastructure and DevOps lifecycle around them, and AI systems from data
+			pipelines and LLM applications to serving them in production. I work independently, as a
+			consultant or contractor.
 		</p>
 	</section>
 
 	<section id="about">
 		<h2>About</h2>
 		<p>
-			My go-to languages are Go, Python, and Java. I build with the future in mind, choosing
-			architecture and scalability for the use case from the start. I do my best work in
+			My go-to languages are Go, Python, and Rust. I build with the future in mind, choosing
+			architecture and scalability for the use case from the start, whether that's a backend
+			service, a deployment platform, or model serving with the evals and observability to keep
+			it reliable. I do my best work in
 			collaborative, cross-cultural teams; they push me to grow technically and personally.
 		</p>
 	</section>
