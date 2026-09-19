@@ -1,5 +1,4 @@
 <script>
-	import globe from '$lib/globe.js?raw';
 	import clock from '$lib/clock.js?raw';
 	import contact from '$lib/contact.js?raw';
 	import posthog from 'posthog-js';
@@ -82,8 +81,7 @@
 	</footer>
 </main>
 
-<aside aria-hidden="true"><div class="planet"><pre id="globe"></pre><pre id="globe2"></pre></div></aside>
-{@html `<script>${globe}${clock}${contact}</script>`}
+{@html `<script>${clock}${contact}</script>`}
 
 <style>
 	:global(:root) {
@@ -112,11 +110,6 @@
 	section, header { scroll-margin-top: 2rem; }
 	:global(.wave span) { animation: wave calc(var(--n) * 70ms) linear 3; animation-delay: calc(var(--i) * 70ms); }
 	@keyframes -global-wave { 0%, 12% { color: var(--accent); } 13%, 100% { color: inherit; } }
-	aside { grid-column: 3; position: sticky; top: 0; align-self: start; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: flex-end; }
-	.planet { position: relative; transform: translateX(50%) scaleX(0.8); }
-	.planet pre { margin: 0; font: clamp(8px, calc((50vw - 23rem) / 25), 17px)/1 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); user-select: none; cursor: crosshair; touch-action: none; }
-	#globe2 { position: absolute; inset: 0; color: var(--accent); pointer-events: none; }
-	@media (max-width: 900px) { aside { display: none; } }
 	header { display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 3rem; }
 	.portrait { flex: none; width: 96px; height: 128px; object-fit: cover; background: var(--line); border-radius: 2px; }
 	nav { display: flex; gap: 1rem; margin-top: 0.75rem; }
